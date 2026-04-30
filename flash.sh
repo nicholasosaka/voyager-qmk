@@ -48,6 +48,16 @@ if [ $? -eq 0 ]; then
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     cd $folder || exit
     zapp flash $filename
+
+    echo
+    echo "Cleaning up build artifact"
+
+    if [ -d $folder ]; then
+      if [ -f "${folder}/${filename}" ]; then
+        rm "${folder}/${filename}"
+      fi
+      rmdir "$folder"
+    fi
   else
     echo "Aborting."
   fi
