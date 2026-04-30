@@ -61,6 +61,10 @@ if [ $? -eq 0 ]; then
   else
     echo "Aborting."
   fi
+
+  echo "Pulling latest changes from origin"
+  git pull
+
 else
   echo "GitHub Actions did not complete successfully, aborting."
 fi
