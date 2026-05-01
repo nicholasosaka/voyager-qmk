@@ -70,3 +70,4 @@ thresold      -> threshold
 udpate        -> update
 widht         -> width
 unfortuately  -> unfortunately
+bizzare       -> bizarre
