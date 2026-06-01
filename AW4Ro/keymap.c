@@ -15,12 +15,13 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(13, KC_F12)
-#define DUAL_FUNC_1 LT(11, KC_A)
-#define DUAL_FUNC_2 LT(1, KC_7)
-#define DUAL_FUNC_3 LT(12, KC_F3)
-#define DUAL_FUNC_4 LT(10, KC_Q)
-#define DUAL_FUNC_5 LT(7, KC_F11)
+#define DUAL_FUNC_0 LT(1, KC_P)
+#define DUAL_FUNC_1 LT(7, KC_R)
+#define DUAL_FUNC_2 LT(6, KC_F18)
+#define DUAL_FUNC_3 LT(8, KC_F6)
+#define DUAL_FUNC_4 LT(15, KC_P)
+#define DUAL_FUNC_5 LT(10, KC_H)
+#define DUAL_FUNC_6 LT(6, KC_8)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -52,11 +53,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     DRAG_SCROLL,    KC_TRANSPARENT,                                 KC_NO,          KC_NO
   ),
   [4] = LAYOUT_voyager(
-    TO(0),          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    TO(0),          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          TO(5),          
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_AUDIO_VOL_UP,KC_BRIGHTNESS_UP,                                RGB_SPI,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_SLD,        RGB_TOG,        
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_AUDIO_VOL_DOWN,KC_BRIGHTNESS_DOWN,                                RGB_SPD,        RGB_HUD,        RGB_SAD,        RGB_VAD,        RGB_MODE_FORWARD,KC_NO,          
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_AUDIO_MUTE,  KC_MS_JIGGLER_TOGGLE,                                KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+  [5] = LAYOUT_voyager(
+    DUAL_FUNC_6,    KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,       
+    CW_TOGG,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,        
+    MT(MOD_LSFT, KC_BSPC),KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        MT(MOD_RSFT, KC_QUOTE),
+    KC_LEFT_GUI,    MT(MOD_LALT, KC_Z),KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         MT(MOD_RALT, KC_SLASH),KC_RIGHT_CTRL,  
+                                                    KC_SPACE,       MT(MOD_LCTL, KC_TAB),                                MT(MOD_LSFT, KC_BSPC),KC_TRANSPARENT
   ),
 };
 
@@ -92,7 +100,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [3] = { {0,0,0}, {0,0,0}, {25,224,251}, {0,0,0}, {25,224,251}, {124,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {204,202,255}, {0,0,0}, {25,224,251}, {0,0,0}, {0,0,0}, {0,234,255}, {0,234,255}, {131,218,204}, {206,213,208}, {0,0,0}, {0,0,0}, {0,0,0}, {25,224,251}, {131,218,204}, {206,213,208}, {25,224,251}, {0,0,0}, {206,213,208}, {131,218,204}, {124,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {25,224,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {25,224,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {25,224,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {25,224,251}, {0,0,0}, {0,0,0} },
 
-    [4] = { {0,225,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {189,225,255}, {204,237,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {189,225,255}, {204,237,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {189,225,255}, {44,202,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {204,237,255}, {189,225,255}, {167,225,255}, {155,225,255}, {136,225,255}, {121,225,255}, {204,237,255}, {189,225,255}, {167,225,255}, {155,225,255}, {136,225,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [4] = { {0,225,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {189,225,255}, {204,237,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {189,225,255}, {204,237,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {189,225,255}, {44,202,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,225,255}, {204,237,255}, {189,225,255}, {167,225,255}, {155,225,255}, {136,225,255}, {121,225,255}, {204,237,255}, {189,225,255}, {167,225,255}, {155,225,255}, {136,225,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
 };
 
@@ -273,6 +281,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code16(KC_RIGHT_CTRL);
         } else {
           unregister_code16(KC_RIGHT_CTRL);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_6:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(KC_ESCAPE);
+        } else {
+          unregister_code16(KC_ESCAPE);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_ESCAPE);
+        } else {
+          unregister_code16(KC_ESCAPE);
         }  
       }  
       return false;
