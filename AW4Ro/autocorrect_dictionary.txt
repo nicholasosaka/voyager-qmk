@@ -1,5 +1,6 @@
 :guage        -> gauge
 :the:the:     -> the
+:on:on:       -> on
 :thier        -> their
 :ture         -> true
 accomodate    -> accommodate
@@ -107,3 +108,4 @@ tomorow       -> tomorrow
 woudl         -> would
 wierd         -> weird
 wrold         -> world
+errro         -> error
