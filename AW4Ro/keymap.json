@@ -4,6 +4,7 @@
         "zsa/mousejiggler",
         "zsa/doubleclick",
         "zsa/navigator_trackball",
+        "zsa/navigator_trackpad",
         "zsa/automouse",
         "zsa/defaults"
     ]
