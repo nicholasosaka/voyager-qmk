@@ -361,3 +361,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
+  (void)mods;
+
+  switch (keycode) {
+    case DUAL_FUNC_0:
+      return KC_RCBR;
+    case DUAL_FUNC_5:
+      return KC_LCBR;
+    default:
+      return KC_TRNS;
+  }
+}
