@@ -370,6 +370,18 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
       return KC_RCBR;
     case DUAL_FUNC_5:
       return KC_LCBR;
+    case DUAL_FUNC_1:
+      return KC_RPRN;
+    case DUAL_FUNC_4:
+      return KC_LPRN;
+    case MT(MOD_LALT, KC_LBRC):
+      return KC_RBRC;
+    case MT(MOD_LALT, KC_RBRC):
+      return KC_LBRC;
+    case KC_LABK:
+      return KC_RABK;
+    case KC_RABK:
+      return KC_LABK;
     default:
       return KC_TRNS;
   }
