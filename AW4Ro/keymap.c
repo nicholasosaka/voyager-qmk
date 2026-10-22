@@ -109,6 +109,24 @@ void keyboard_post_init_user(void) {
   rgb_matrix_enable();
 }
 
+bool process_detected_host_os_user(os_variant_t detected_os) {
+  switch (detected_os) {
+    case OS_MACOS:
+    case OS_IOS:
+      keymap_config.swap_lctl_lgui = true;
+      keymap_config.swap_rctl_rgui = true;
+      break;
+    case OS_WINDOWS:
+    case OS_LINUX:
+      keymap_config.swap_lctl_lgui = false;
+      keymap_config.swap_rctl_rgui = false;
+      break;
+    default:
+      break;
+  }
+  return true;
+}
+
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [1] = { {0,0,0}, {45,203,255}, {45,203,255}, {45,203,255}, {45,203,255}, {45,203,255}, {0,0,0}, {37,255,255}, {9,255,255}, {151,218,204}, {83,218,204}, {129,255,255}, {0,0,0}, {0,209,96}, {156,255,255}, {0,230,255}, {188,255,255}, {82,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {108,218,204}, {46,218,204}, {227,218,204}, {0,0,0}, {0,0,0}, {45,203,255}, {45,203,255}, {45,203,255}, {45,203,255}, {45,203,255}, {0,0,0}, {129,255,255}, {83,218,204}, {151,218,204}, {11,219,255}, {71,255,255}, {37,255,255}, {82,255,255}, {188,255,255}, {0,230,255}, {156,255,255}, {0,209,96}, {0,0,0}, {227,218,204}, {46,218,204}, {108,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
