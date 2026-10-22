@@ -96,6 +96,29 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 
+static bool host_is_macos = false;
+
+static void tap_shortcut_with_mods(uint8_t mods, uint16_t keycode) {
+  add_weak_mods(mods);
+  send_keyboard_report();
+  tap_code16(keycode);
+  del_weak_mods(mods);
+  send_keyboard_report();
+}
+
+static void tap_platform_shortcut(uint16_t keycode) {
+  tap_shortcut_with_mods(host_is_macos ? MOD_BIT(KC_LEFT_GUI) : MOD_BIT(KC_LEFT_CTRL), keycode);
+}
+
+static void tap_platform_redo_shortcut(void) {
+  if (host_is_macos) {
+    tap_shortcut_with_mods(MOD_BIT(KC_LEFT_GUI) | MOD_BIT(KC_LEFT_SHIFT), KC_Z);
+  } else {
+    tap_shortcut_with_mods(MOD_BIT(KC_LEFT_CTRL), KC_Y);
+  }
+}
+
+
 
 extern rgb_config_t rgb_matrix_config;
 
@@ -113,15 +136,18 @@ bool process_detected_host_os_user(os_variant_t detected_os) {
   switch (detected_os) {
     case OS_MACOS:
     case OS_IOS:
+      host_is_macos = true;
       keymap_config.swap_lctl_lgui = true;
       keymap_config.swap_rctl_rgui = true;
       break;
     case OS_WINDOWS:
     case OS_LINUX:
+      host_is_macos = false;
       keymap_config.swap_lctl_lgui = false;
       keymap_config.swap_rctl_rgui = false;
       break;
     default:
+      host_is_macos = false;
       break;
   }
   return true;
@@ -229,22 +255,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_4:
     if (record->event.pressed) {
-      SEND_STRING(SS_LCTL(SS_TAP(X_C)));
+      tap_platform_shortcut(KC_C);
     }
     break;
     case ST_MACRO_5:
     if (record->event.pressed) {
-      SEND_STRING(SS_LCTL(SS_TAP(X_V)));
+      tap_platform_shortcut(KC_V);
     }
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-      SEND_STRING(SS_LCTL(SS_TAP(X_Z)));
+      tap_platform_shortcut(KC_Z);
     }
     break;
     case ST_MACRO_7:
     if (record->event.pressed) {
-      SEND_STRING(SS_LCTL(SS_TAP(X_Y)));
+      tap_platform_redo_shortcut();
     }
     break;
 
