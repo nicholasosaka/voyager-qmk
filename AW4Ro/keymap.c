@@ -19,20 +19,20 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(11, KC_F23)
-#define DUAL_FUNC_1 LT(10, KC_5)
-#define DUAL_FUNC_2 LT(6, KC_F10)
-#define DUAL_FUNC_3 LT(6, KC_F18)
-#define DUAL_FUNC_4 LT(13, KC_A)
-#define DUAL_FUNC_5 LT(11, KC_F20)
-#define DUAL_FUNC_6 LT(10, KC_F18)
+#define DUAL_FUNC_0 LT(1, KC_F23)
+#define DUAL_FUNC_1 LT(11, KC_H)
+#define DUAL_FUNC_2 LT(9, KC_F13)
+#define DUAL_FUNC_3 LT(4, KC_F22)
+#define DUAL_FUNC_4 LT(4, KC_S)
+#define DUAL_FUNC_5 LT(2, KC_F2)
+#define DUAL_FUNC_6 LT(10, KC_J)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,        
-    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,        
-    QK_REPEAT_KEY, KC_A,           MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),MT(MOD_LGUI, KC_G),                                MT(MOD_RGUI, KC_H),MT(MOD_RSFT, KC_J),MT(MOD_RCTL, KC_K),MT(MOD_LALT, KC_L),KC_SCLN,        KC_QUOTE,       
-    QK_ALT_REPEAT_KEY, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_LEFT_SHIFT,  
+    ALL_T(KC_TAB),     KC_Q,        KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,        
+    QK_REPEAT_KEY,     KC_A,        MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),MT(MOD_LGUI, KC_G),                                MT(MOD_RGUI, KC_H),MT(MOD_RSFT, KC_J),MT(MOD_RCTL, KC_K),MT(MOD_LALT, KC_L),KC_SCLN,        KC_QUOTE,       
+    QK_ALT_REPEAT_KEY, KC_Z,        KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_LEFT_SHIFT,  
                                                     LT(1, KC_SPACE),MO(3),                                          MT(MOD_LCTL, KC_ENTER),MO(2)
   ),
   [1] = LAYOUT_voyager(
