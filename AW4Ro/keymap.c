@@ -390,6 +390,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
   switch (keycode) {
+    case ALL_T(KC_TAB):
     case KC_TAB:
       return (mods & MOD_MASK_SHIFT) ? KC_TAB : S(KC_TAB);
     case DUAL_FUNC_0:
